@@ -71,14 +71,14 @@ createServer({
     routes() {
         this.namespace = "api";
 
-        this.get("/vans", (schema, request) => schema.vans.all());
+        this.get("/vans", (schema) => schema.vans.all());
 
         this.get("/vans/:id", (schema, request) => {
             const {id} = request.params;
             return schema.vans.find(id);
         });
 
-        this.get("/host/vans", (schema, request) => 
+        this.get("/host/vans", (schema) => 
             // Hard-code the hostId for now
             schema.vans.where({ hostId: "123" })
         );
