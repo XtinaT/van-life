@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Box, Button, Stack, Typography } from "@mui/material";
-import { useParams } from "react-router-dom";
+import { Box, Stack, Typography } from "@mui/material";
+import { useParams, Outlet } from "react-router-dom";
 import { Loader } from "../../components/Loader";
 import { LinkMoveBack } from "../../components/LinkMoveBack";
 import { HostVanNavBar } from "./HostVanNavBar";
@@ -11,7 +11,7 @@ const colors = {
     luxury: "#161616",
 };
 
-const types = {
+export const types = {
     simple: "Simple",
     rugged: "Rugged",
     luxury: "Luxury",
@@ -30,7 +30,8 @@ export function HostVan() {
     }, [id]);
     return (
         <Stack sx={{ padding: "30px", background: "#FFF7ED", flexGrow: "2" }}>
-            <LinkMoveBack url="/host/vans" text="Back to all vans" />
+            <LinkMoveBack url=".." text="Back to all vans" />
+            {/* url="../vans" or use relative="path" to go to the previous route */}
             {vanInfo && (
                 <Stack key={vanInfo.id} p="25px" gap={2} sx={{ background: "white" }}>
                     <Stack direction="row">
@@ -79,21 +80,7 @@ export function HostVan() {
                         </Stack>
                     </Stack>
                     <HostVanNavBar />
-
-                    <Typography sx={{ fontSize: "14px", fontWeight: 500 }}>
-                        <b>Name: </b>
-                        {vanInfo.name}
-                    </Typography>
-
-                    <Typography sx={{ fontSize: "14px", fontWeight: 500 }}>
-                        <b>Category: </b>
-                        {types[vanInfo.type]}
-                    </Typography>
-
-                    <Typography sx={{ fontSize: "14px", fontWeight: 500 }}>
-                        <b>Description: </b>
-                        {vanInfo.description}
-                    </Typography>
+                    <Outlet context={vanInfo} />
                 </Stack>
             )}
             <Loader isLoaderOpen={isLoaderOpen} />

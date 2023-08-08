@@ -13,6 +13,7 @@ export function LinkMoveBack({ url, text }) {
         >
             <Link
                 to={url}
+                relative="path"
                 style={{
                     display: "flex",
                     alignItems: "center",

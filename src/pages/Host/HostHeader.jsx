@@ -14,28 +14,28 @@ export function HostHeader() {
     return (
         <Stack direction="row" sx={{ padding: "24px", backgroundColor: "#FFF7ED", gap: "30px" }}>
             <NavLink
-                to="/host"
+                to="." // dot is used to redirect to the current route
                 end
                 style={({ isActive }) => (isActive ? activeStyles : inactiveStyles)}
             >
                 Dashboard
             </NavLink>
             <NavLink
-                to="/host/income"
+                to="income"
                 end
                 style={({ isActive }) => (isActive ? activeStyles : inactiveStyles)}
             >
                 Income
             </NavLink>
             <NavLink
-                to="/host/vans"
+                to="vans"
                 end
                 style={({ isActive }) => (isActive ? activeStyles : inactiveStyles)}
             >
                 Vans
             </NavLink>
             <NavLink
-                to="/host/review"
+                to="review"
                 end
                 style={({ isActive }) => (isActive ? activeStyles : inactiveStyles)}
             >

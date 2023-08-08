@@ -14,22 +14,20 @@ export function HostVanNavBar() {
     return (
         <Stack direction="row" sx={{ padding: "24px 0 0 0", gap: "30px" }}>
             <NavLink
-                to="/host/details"
+                to="."
                 end
                 style={({ isActive }) => (isActive ? activeStyles : inactiveStyles)}
             >
                 Details
             </NavLink>
             <NavLink
-                to="/host/pricing"
-                end
+                to="pricing"
                 style={({ isActive }) => (isActive ? activeStyles : inactiveStyles)}
             >
                 Pricing
             </NavLink>
             <NavLink
-                to="/host/photos"
-                end
+                to="photos"
                 style={({ isActive }) => (isActive ? activeStyles : inactiveStyles)}
             >
                 Photos
