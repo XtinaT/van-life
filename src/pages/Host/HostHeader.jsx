@@ -1,14 +1,8 @@
 import { Stack } from "@mui/material";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { activeStyles , inactiveStyles } from "../../components/Header";
 
-const activeStyles = {
-    color: "#4D4D4D",
-    fontSize: "16px",
-    fontWeight: "700",
-    textDecoration: "underline",
-};
-const inactiveStyles = { color: "#4D4D4D", fontSize: "16px", fontWeight: "600" };
 
 export function HostHeader() {
     return (
@@ -29,7 +23,6 @@ export function HostHeader() {
             </NavLink>
             <NavLink
                 to="vans"
-                end
                 style={({ isActive }) => (isActive ? activeStyles : inactiveStyles)}
             >
                 Vans
